@@ -4,8 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	pb "service-center/pkg/registry"
-	"service-center/pkg/storage"
+
+	pb "github.com/stainton/service-center/pkg/registry"
+	"github.com/stainton/service-center/pkg/storage"
 )
 
 type RegistryService struct {

@@ -3,10 +3,11 @@ package client
 import (
 	"context"
 	"fmt"
-	"service-center/cmd/app/cli"
-	"service-center/pkg/registry"
 	"sync"
 	"time"
+
+	"github.com/stainton/service-center/cmd/app/cli"
+	"github.com/stainton/service-center/pkg/registry"
 
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"

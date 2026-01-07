@@ -1,8 +1,8 @@
 package main
 
 import (
-	"service-center/cmd/app/cli"
-	"service-center/cmd/app/client"
+	"github.com/stainton/service-center/cmd/app/cli"
+	"github.com/stainton/service-center/cmd/app/client"
 )
 
 func main() {

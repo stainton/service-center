@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-center
+spec:
+  selector:
+    app: service-center
+  ports:
+  - port: 50051
+    targetPort: 50051
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-center
+spec:
+  selector:
+    matchLabels:
+      app: service-center
+  template:
+    metadata:
+      labels:
+        app: service-center
+    spec:
+      containers:
+      - name: service-center
+        image: service-center
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "500m"
+        command: ["/app/server"]
+        args: ["--end_point", "etcd:2379", "--ip", "0.0.0.0", "--log", "stdout"]
+        ports:
+        - containerPort: 50051

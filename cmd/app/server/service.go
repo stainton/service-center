@@ -11,10 +11,15 @@ type Options struct {
 	ip        string
 	port      int
 	zone      string
+	logPath   string
 }
 
 func NewOptions() *Options {
 	return &Options{}
+}
+
+func (o *Options) LogPath() string {
+	return o.logPath
 }
 
 func (o *Options) Endpoints() []string {
@@ -38,6 +43,7 @@ func (o *Options) AddFlags(command *cobra.Command) {
 	command.Flags().StringVar(&o.ip, "ip", "127.0.0.1", "grpc server ip")
 	command.Flags().StringVar(&o.zone, "zone", "", "grpc server IPv6 scoped addressing zone")
 	command.Flags().IntVar(&o.port, "port", 50051, "grpc server port")
+	command.Flags().StringVar(&o.logPath, "log", "", "path of log file")
 }
 
 func (o *Options) Compelete() error {

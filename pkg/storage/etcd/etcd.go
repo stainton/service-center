@@ -3,7 +3,8 @@ package etcd
 import (
 	"context"
 	"encoding/json"
-	"service-center/pkg/storage"
+
+	"github.com/stainton/service-center/pkg/storage"
 
 	clientv3 "go.etcd.io/etcd/client/v3"
 )
